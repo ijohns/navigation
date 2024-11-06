@@ -1,0 +1,115 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #342a21;
+  --color-underline: #da667b;
+  --color-border: #d2d2d7;
+
+  font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  padding: 1rem 0;
+  min-width: 320px;
+}
+
+#app {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  #app {
+    width: 1280px;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: start;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    justify-content: center;
+  }
+}
+
+.nav__items {
+  --nav-underline-width: 56px;
+  --nav-underline-offset-x: 0;
+  --nav-padding-x: 32px;
+  --nav-link-color: #6e6e73;
+  --nav-link-color-active: #424245;
+  --nav-link-color-hover: #06c;
+  --nav-bottom-border: #d2d2d7;
+  --nav-current-link-color: #1d1d1f;
+  --nav-current-bottom-border: #1d1d1f;
+  --nav-gap: 3rem;
+  --nav-overflow-x: auto;
+  --nav-width: max-content;
+
+  position: relative;
+  display: flex;
+  gap: var(--nav-gap);
+  margin: 0;
+  padding: 0 var(--nav-padding-x);
+  list-style: none;
+  border-bottom: 1px solid var(--nav-bottom-border);
+  width: var(--nav-width);
+}
+
+@media (min-width: 768px) {
+  .nav__items {
+    --nav-gap: 5rem;
+  }
+}
+
+.nav__items::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+  height: 1px;
+  width: var(--nav-underline-width);
+  transform: translateX(var(--nav-underline-offset-x));
+  background-color: var(--nav-link-color);
+  transition: transform 0.5s, width 0.5s;
+  border-radius: 1px;
+}
+
+.nav__link {
+  --nav-link-font-size: 14px;
+
+  background: none;
+  border: none;
+
+  display: block;
+  padding: 0.5rem 0;
+  font-size: var(--nav-link-font-size);
+  color: var(--nav-link-color);
+  text-decoration: none;
+  width: max-content;
+}
+
+.nav__link:hover {
+  color: var(--nav-link-color-hover);
+}
+
+.nav__link--active {
+  color: var(--nav-link-color-active);
+}
+
